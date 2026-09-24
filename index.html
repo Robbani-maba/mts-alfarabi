@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTS AL-FARABI Jampang</title>
+<meta name="description" content="Website resmi MTs AL-FARABI Jampang. Membentuk generasi islami, berilmu, berakhlak dan berprestasi.">
+
+<style>
+:root{
+  --hijau:#075b3b;
+  --hijau2:#0b7a4f;
+  --hijau3:#e9f6ef;
+  --emas:#d9ad32;
+  --putih:#fff;
+  --gelap:#123126;
+  --abu:#f5f7f6;
+  --teks:#26352f;
+  --shadow:0 12px 35px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--teks);background:#fff;line-height:1.7}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1120px,92%);margin:auto}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+  box-shadow:0 2px 15px rgba(0,0,0,.07)
+}
+.navbar{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--hijau)}
+.brand img{width:54px;height:54px;object-fit:contain}
+.brand-text{line-height:1.15}
+.brand-text strong{display:block;font-size:17px}
+.brand-text span{font-size:11px;color:#66746e;letter-spacing:1px}
+nav{display:flex;align-items:center;gap:25px}
+nav a{font-weight:700;font-size:14px;color:#30423a;transition:.25s}
+nav a:hover{color:var(--hijau2)}
+.menu-btn{display:none;border:0;background:var(--hijau);color:white;font-size:25px;border-radius:9px;width:44px;height:44px}
+
+/* HERO */
+.hero{
+  min-height:100vh;padding-top:78px;display:flex;align-items:center;
+  background:linear-gradient(120deg,#f0faf4 0%,#fff 50%,#e8f5ee 100%);
+  position:relative;overflow:hidden
+}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(217,173,50,.10)}
+.hero:before{width:380px;height:380px;right:-140px;top:100px}
+.hero:after{width:280px;height:280px;left:-140px;bottom:-100px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-block;background:#dff3e7;color:var(--hijau);padding:8px 15px;border-radius:30px;font-weight:800;font-size:13px;margin-bottom:18px}
+.hero h1{font-size:clamp(38px,6vw,67px);line-height:1.05;color:var(--hijau);margin-bottom:18px}
+.hero h1 span{color:var(--emas)}
+.hero p{font-size:18px;color:#5a6862;max-width:600px;margin-bottom:28px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{padding:13px 22px;border-radius:10px;font-weight:800;display:inline-block;transition:.25s;border:2px solid transparent}
+.btn-primary{background:var(--hijau);color:white}
+.btn-primary:hover{background:#043f2a;transform:translateY(-2px)}
+.btn-outline{border-color:var(--hijau);color:var(--hijau)}
+.btn-outline:hover{background:var(--hijau);color:white}
+.hero-logo{display:flex;justify-content:center}
+.hero-logo img{width:min(440px,85%);filter:drop-shadow(0 20px 25px rgba(0,80,50,.16));animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* STATS */
+.stats{margin-top:-48px;position:relative;z-index:5}
+.stats-box{background:white;border-radius:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+.stat{text-align:center;padding:25px 15px;border-right:1px solid #edf0ee}
+.stat:last-child{border:0}.stat strong{display:block;font-size:30px;color:var(--hijau)}.stat span{font-size:13px;color:#68766f}
+
+/* GENERAL */
+section{padding:90px 0}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title small{color:var(--emas);font-weight:800;text-transform:uppercase;letter-spacing:2px}
+.section-title h2{font-size:36px;color:var(--hijau);margin:5px 0 10px}
+.section-title p{color:#718078;max-width:650px;margin:auto}
+
+/* PROFIL */
+.about{background:var(--abu)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-card{background:white;border-radius:20px;padding:35px;box-shadow:var(--shadow)}
+.about-card h3{font-size:27px;color:var(--hijau);margin-bottom:14px}
+.about-card p{color:#627069;margin-bottom:15px}
+.quote{border-left:4px solid var(--emas);padding-left:17px;font-weight:700;color:var(--hijau)}
+.visi{display:grid;gap:15px}
+.vm{background:white;border-radius:15px;padding:20px;box-shadow:0 5px 20px rgba(0,0,0,.05)}
+.vm h3{color:var(--hijau);margin-bottom:5px}
+
+/* PROGRAM */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;border:1px solid #e7ece9;border-radius:17px;padding:25px;transition:.25s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.icon{width:54px;height:54px;border-radius:14px;background:var(--hijau3);display:grid;place-items:center;font-size:27px;margin-bottom:15px}
+.card h3{color:var(--hijau);margin-bottom:8px}.card p{color:#6d7973;font-size:14px}
+.card-photo{width:calc(100% + 50px);height:190px;object-fit:cover;margin:-25px -25px 20px;border-radius:15px 15px 0 0}
+.card-photo + h3{margin-top:0}
+
+/* GALERI */
+.gallery{background:var(--abu)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.gallery-item{height:245px;border-radius:16px;overflow:hidden;position:relative;background:#dcece3}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gallery-item:hover img{transform:scale(1.07)}
+.gallery-item .caption{position:absolute;left:0;right:0;bottom:0;padding:35px 15px 13px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.7));font-weight:700}
+
+/* NEWS */
+.news-card{overflow:hidden;padding:0}.news-img{height:190px;background:linear-gradient(135deg,var(--hijau),var(--hijau2));display:grid;place-items:center;font-size:70px;color:white}
+.news-content{padding:22px}.news-content small{color:var(--emas);font-weight:800}.news-content h3{color:var(--hijau);margin:5px 0}
+
+/* PPDB */
+.ppdb{background:linear-gradient(120deg,var(--hijau),#0c8154);color:white}
+.ppdb-box{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.ppdb h2{font-size:34px;margin-bottom:8px}.ppdb p{opacity:.88}
+.btn-gold{background:var(--emas);color:#173b2b}.btn-gold:hover{filter:brightness(.94);transform:translateY(-2px)}
+
+/* KONTAK */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-card{padding:28px;background:var(--abu);border-radius:17px}
+.contact-row{display:flex;gap:15px;margin:15px 0}.contact-row .icon{flex:none;margin:0;width:45px;height:45px;font-size:21px}
+.map{width:100%;height:100%;min-height:330px;border:0;border-radius:17px;background:#e6eee9;display:grid;place-items:center;color:var(--hijau);font-weight:700}
+
+/* FOOTER */
+footer{background:#073b29;color:#dce9e2;padding:50px 0 25px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:35px}
+footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color:#b8cec3}footer ul{list-style:none}footer li{margin:8px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:35px;padding-top:20px;text-align:center;font-size:13px;color:#9fb8ac}
+
+/* FLOATING */
+.float-wa{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#25d366;color:white;display:grid;place-items:center;font-size:27px;box-shadow:0 8px 25px rgba(0,0,0,.2);z-index:900}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+  nav{display:none;position:absolute;top:78px;left:0;right:0;background:white;padding:15px 5%;box-shadow:0 10px 20px rgba(0,0,0,.08);flex-direction:column;align-items:flex-start}
+  nav.show{display:flex}.menu-btn{display:block}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{padding-top:115px;padding-bottom:80px}.hero-logo{order:-1}.hero-logo img{width:280px}
+  .stats{margin-top:-25px}.stats-box{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #edf0ee}
+  .cards{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}.ppdb-box{display:block;text-align:center}.ppdb-box .btn{margin-top:20px}
+}
+@media(max-width:560px){
+  .brand img{width:45px;height:45px}.brand-text strong{font-size:14px}.brand-text span{font-size:9px}
+  section{padding:65px 0}.hero h1{font-size:42px}.hero p{font-size:16px}
+  .cards,.gallery-grid,.footer-grid{grid-template-columns:1fr}.gallery-item{height:260px}
+  .stats-box{grid-template-columns:1fr 1fr}.stat{padding:18px 8px}.stat strong{font-size:24px}
+  .section-title h2{font-size:29px}.about-card{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#beranda" class="brand">
+      <img src="logo-mts.png" alt="Logo MTs Al-Farabi">
+      <div class="brand-text">
+        <strong>MTs AL-FARABI</strong>
+        <span>JAMPANG • BOGOR</span>
+      </div>
+    </a>
+
+    <nav id="nav">
+      <a href="#beranda">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#program">Program</a>
+      <a href="#prestasi">Prestasi</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#berita">Berita</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="beranda">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">🌿 MADRASAH TSANAWIYAH AL-FARABI</span>
+      <h1>Membangun Generasi <span>Islami</span> & Berprestasi</h1>
+      <p>Selamat datang di website MTs AL-FARABI Jampang. Tempat belajar, bertumbuh, berakhlak, dan mengembangkan potensi peserta didik.</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#profil">Kenali Madrasah →</a>
+        <a class="btn btn-outline" href="#kontak">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <img src="logo-mts.png" alt="Logo MTs AL-FARABI Jampang">
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container stats-box">
+    <div class="stat"><strong>✓</strong><span>Madrasah Islami</span></div>
+    <div class="stat"><strong>📚</strong><span>Pembelajaran Berkualitas</span></div>
+    <div class="stat"><strong>🏆</strong><span>Pengembangan Prestasi</span></div>
+    <div class="stat"><strong>🤝</strong><span>Karakter & Akhlak</span></div>
+  </div>
+</div>
+
+<section id="profil" class="about">
+  <div class="container">
+    <div class="section-title">
+      <small>Tentang Kami</small>
+      <h2>Profil MTs AL-FARABI</h2>
+      <p>Mengenal lebih dekat madrasah dan nilai-nilai yang menjadi dasar pendidikan.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>MTs AL-FARABI Jampang</h3>
+        <p>MTs AL-FARABI merupakan madrasah yang berkomitmen memberikan pendidikan yang memadukan ilmu pengetahuan, nilai-nilai keislaman, pembentukan karakter, dan pengembangan potensi peserta didik.</p>
+        <p class="quote">“Berilmu • Berakhlak • Berprestasi”</p>
+      </div>
+      <div class="visi">
+        <div class="vm">
+          <h3>🎯 Visi</h3>
+          <p>Rabka (RAPIH, AKTIVE, BERSIH, KREATIVE, DAN ANTUSIAS)</p>
+        </div>
+        <div class="vm">
+          <h3>📖 Misi</h3>
+          <p>Menyelenggarakan pembelajaran yang aktif dan berkualitas serta membiasakan nilai-nilai keislaman dalam kehidupan sehari-hari.</p>
+        </div>
+        <div class="vm">
+          <h3>🌱 Nilai Utama</h3>
+          <p>Keimanan, akhlak, kedisiplinan, tanggung jawab, kreativitas, dan semangat berprestasi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="container">
+    <div class="section-title">
+      <small>Program</small>
+      <h2>Program Unggulan</h2>
+      <p>Ruang bagi siswa untuk berkembang dalam ilmu, karakter, dan keterampilan.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><img class="card-photo" src="ibadah-1.jpeg"  alt="Kegiatan keagamaan siswa MTs AL-FARABI" loading="lazy"><div class="icon">📖</div><h3>Keislaman</h3><p>Pembiasaan ibadah, pembelajaran Al-Qur'an, dan penguatan nilai-nilai akhlak.</p></div>
+      <div class="card"><div class="icon">💻</div><h3>Teknologi</h3><p>Mendorong literasi digital dan pemanfaatan teknologi untuk pembelajaran.</p></div>
+      <div class="card"><div class="icon">🏅</div><h3>Prestasi</h3><p>Mendukung siswa mengembangkan bakat akademik maupun non-akademik.</p></div>
+      <div class="card"><img class="card-photo" src="olahraga.jpeg" alt="Kegiatan olahraga siswa MTs AL-FARABI" loading="lazy"><div class="icon">⚽</div><h3>Olahraga</h3><p>Kegiatan olahraga untuk membangun kesehatan, disiplin, dan kerja sama.</p></div>
+      <div class="card"><div class="icon">🎨</div><h3>Seni & Kreativitas</h3><p>Wadah untuk mengembangkan kreativitas dan kemampuan seni siswa.</p></div>
+      <div class="card"><div class="icon">🤲</div><h3>Karakter</h3><p>Membangun sikap santun, bertanggung jawab, mandiri, dan peduli terhadap sesama.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prestasi" class="about">
+  <div class="container">
+    <div class="section-title">
+      <small>Keunggulan</small>
+      <h2>Prestasi & Kegiatan</h2>
+      <p>Bagian ini dapat kamu isi dengan prestasi dan kegiatan terbaru MTs AL-FARABI.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="icon">🏆</div><h3>Prestasi Siswa</h3><p>Tambahkan daftar juara atau penghargaan siswa di sini.</p></div>
+      <div class="card"><div class="icon">🎓</div><h3>Kegiatan Akademik</h3><p>Tambahkan kegiatan pembelajaran, ujian, seminar, atau pelatihan.</p></div>
+      <div class="card"><div class="icon">🌿</div><h3>Kegiatan Keagamaan</h3><p>Tambahkan dokumentasi dan informasi kegiatan keagamaan madrasah.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri" class="gallery">
+  <div class="container">
+    <div class="section-title">
+      <small>Dokumentasi</small>
+      <h2>Galeri MTs AL-FARABI</h2>
+      <p>Foto profil madrasah. Foto kegiatan lainnya bisa ditambahkan dari dokumentasi sekolah.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="foto-sekolah.jpg" alt="Gedung MTs AL-FARABI" onerror="this.src='logo-mts.png'">
+        <div class="caption">Lingkungan MTs AL-FARABI</div>
+      </div>
+      <div class="gallery-item"><img src="logo-mts.png" alt="Logo MTs AL-FARABI"><div class="caption">Identitas Madrasah</div></div>
+      <div class="gallery-item"><img src="foto-sekolah.jpg" alt="Gedung madrasah" onerror="this.src='logo-mts.png'"><div class="caption">Gedung Madrasah</div></div>
+      <div class="gallery-item"><img src="olahraga.jpeg" alt="Kegiatan olahraga siswa MTs AL-FARABI" loading="lazy"><div class="caption">Kegiatan Olahraga</div></div>
+      <div class="gallery-item"><img src="ibadah.jpeg" alt="Kegiatan keagamaan siswa MTs AL-FARABI" loading="lazy"><div class="caption">Kegiatan Keagamaan</div></div>
+    </div>
+    <div style="text-align:center;margin-top:30px">
+      <a class="btn btn-primary" href="https://www.instagram.com/mtsalfarabijampang/" target="_blank">📸 Lihat Instagram @mtsalfarabijampang</a>
+    </div>
+  </div>
+</section>
+
+<section id="berita">
+  <div class="container">
+    <div class="section-title">
+      <small>Informasi</small>
+      <h2>Berita & Kegiatan</h2>
+      <p>Contoh tampilan berita yang nantinya bisa kamu ubah sesuai kegiatan terbaru.</p>
+    </div>
+    <div class="cards">
+      <article class="card news-card">
+        <div class="news-img">🏫</div>
+        <div class="news-content"><small>INFORMASI MADRASAH</small><h3>Kegiatan MTs AL-FARABI</h3><p>Tambahkan berita kegiatan terbaru madrasah di bagian ini.</p></div>
+      </article>
+      <article class="card news-card">
+        <div class="news-img">📚</div>
+        <div class="news-content"><small>AKADEMIK</small><h3>Pembelajaran Siswa</h3><p>Isi dengan informasi pembelajaran, program akademik, atau agenda sekolah.</p></div>
+      </article>
+      <article class="card news-card">
+        <div class="news-img">🏆</div>
+        <div class="news-content"><small>PRESTASI</small><h3>Prestasi Peserta Didik</h3><p>Tambahkan kabar prestasi dan pencapaian siswa MTs AL-FARABI.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ppdb">
+  <div class="container ppdb-box">
+    <div><h2>🎓 Penerimaan Peserta Didik Baru</h2><p>Informasi PPDB dapat ditempatkan di bagian ini ketika pendaftaran dibuka.</p></div>
+    <a href="#kontak" class="btn btn-gold">Info Pendaftaran →</a>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="container">
+    <div class="section-title">
+      <small>Hubungi Kami</small>
+      <h2>Kontak MTs AL-FARABI</h2>
+      <p>Silakan sesuaikan informasi kontak di bawah dengan data resmi madrasah.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-row"><div class="icon">📍</div><div><strong>Alamat</strong><p>Jl. Raya Jampang, Kabupaten Bogor, Jawa Barat</p></div></div>
+        <div class="contact-row"><div class="icon">📸</div><div><strong>Instagram</strong><p>@mtsalfarabijampang</p></div></div>
+        <div class="contact-row"><div class="icon">💬</div><div><strong>WhatsApp</strong><p><a href="https://wa.me/6285974818771" target="_blank" rel="noopener">+62 859-7481-8771</a></p></div></div>
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://www.instagram.com/mtsalfarabijampang/" target="_blank" rel="noopener">Buka Instagram</a>
+          <a class="btn btn-outline" href="https://wa.me/6285974818771" target="_blank" rel="noopener">Chat WhatsApp</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps?q=MTs%20Al-Farabi%20Jampang%20Bogor&output=embed"
+          width="100%" height="100%" style="border:0;border-radius:17px;min-height:330px;display:block"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen title="Lokasi MTs AL-FARABI Jampang">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3>MTs AL-FARABI</h3>
+      <p>Madrasah yang berkomitmen membentuk generasi berilmu, berakhlak, dan berprestasi.</p>
+    </div>
+    <div>
+      <h3>Menu</h3>
+      <ul><li><a href="#profil">Profil</a></li><li><a href="#program">Program</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#kontak">Kontak</a></li></ul>
+    </div>
+    <div>
+      <h3>Media Sosial</h3>
+      <ul><li><a href="https://www.instagram.com/mtsalfarabijampang/" target="_blank">Instagram</a></li><li><a href="#kontak">WhatsApp</a></li></ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">© <span id="year"></span> MTs AL-FARABI Jampang. Semua Hak Dilindungi.</div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/6285974818771" target="_blank" rel="noopener" title="Chat WhatsApp MTs AL-FARABI">💬</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('show');
+}
+document.querySelectorAll('nav a').forEach(function(link){
+  link.addEventListener('click',function(){
+    document.getElementById('nav').classList.remove('show');
+  });
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
