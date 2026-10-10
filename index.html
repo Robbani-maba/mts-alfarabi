@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MTS AL-FARABI Jampang</title>
+<title>MTs AL-FARABI Jampang</title>
 <meta name="description" content="Website resmi MTs AL-FARABI Jampang. Membentuk generasi islami, berilmu, berakhlak dan berprestasi.">
 
 <style>
@@ -98,9 +98,30 @@ section{padding:90px 0}
 .card-photo{width:calc(100% + 50px);height:190px;object-fit:cover;margin:-25px -25px 20px;border-radius:15px 15px 0 0}
 .card-photo + h3{margin-top:0}
 
+/* PROGRAM INTERAKTIF */
+.program-note{text-align:center;color:#6d7973;margin:-15px auto 25px}
+.program-card{font:inherit;text-align:left;color:inherit;width:100%;cursor:pointer;position:relative}
+.program-card:focus{outline:3px solid rgba(20,120,75,.25);outline-offset:3px}
+.program-link{display:inline-block;margin-top:14px;color:var(--hijau);font-weight:800;font-size:13px}
+.program-placeholder{height:190px;margin:-25px -25px 20px;border-radius:15px 15px 0 0;background:linear-gradient(135deg,var(--hijau),var(--hijau2));display:grid;place-items:center;font-size:70px;color:white}
+
+/* MODAL FOTO PROGRAM */
+.program-modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.78);padding:25px;overflow:auto}
+.program-modal.show{display:block}
+.program-modal-box{max-width:1050px;margin:30px auto;background:white;border-radius:20px;padding:25px;position:relative}
+.program-modal-head{padding-right:45px;margin-bottom:20px}
+.program-modal-head h3{color:var(--hijau);font-size:28px;margin:0 0 5px}
+.program-modal-head p{color:#6d7973;margin:0}
+.program-close{position:absolute;right:18px;top:15px;border:0;background:#eef4f0;color:var(--hijau);width:42px;height:42px;border-radius:50%;font-size:25px;cursor:pointer}
+.program-photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.program-photo-grid figure{margin:0;border-radius:14px;overflow:hidden;background:#eef4f0}
+.program-photo-grid img{display:block;width:100%;height:240px;object-fit:cover}
+.program-photo-grid figcaption{padding:10px 12px;font-weight:700;color:#385047;font-size:13px}
+.program-empty{padding:35px;text-align:center;background:#f2f6f3;border-radius:15px;color:#66756d}
+
 /* GALERI */
 .gallery{background:var(--abu)}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
 .gallery-item{height:245px;border-radius:16px;overflow:hidden;position:relative;background:#dcece3}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
 .gallery-item:hover img{transform:scale(1.07)}
@@ -148,6 +169,18 @@ footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color
   .cards,.gallery-grid,.footer-grid{grid-template-columns:1fr}.gallery-item{height:260px}
   .stats-box{grid-template-columns:1fr 1fr}.stat{padding:18px 8px}.stat strong{font-size:24px}
   .section-title h2{font-size:29px}.about-card{padding:25px}
+}
+
+@media(max-width:700px){
+  .program-modal{padding:12px}
+  .program-modal-box{margin:10px auto;padding:18px}
+  .program-modal-head h3{font-size:23px}
+  .program-photo-grid{grid-template-columns:1fr 1fr}
+  .program-photo-grid img{height:190px}
+}
+@media(max-width:480px){
+  .program-photo-grid{grid-template-columns:1fr}
+  .program-photo-grid img{height:220px}
 }
 </style>
 </head>
@@ -220,7 +253,7 @@ footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color
       <div class="visi">
         <div class="vm">
           <h3>🎯 Visi</h3>
-          <p>RABKA (RAPIH, AKTIVE, BERSIH, KREATIVE, DAN ANTUSIAS)</p>
+          <p>Terwujudnya generasi yang beriman, berilmu, berakhlak mulia, mandiri, dan berprestasi.</p>
         </div>
         <div class="vm">
           <h3>📖 Misi</h3>
@@ -242,13 +275,49 @@ footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color
       <h2>Program Unggulan</h2>
       <p>Ruang bagi siswa untuk berkembang dalam ilmu, karakter, dan keterampilan.</p>
     </div>
+    <p class="program-note">Klik salah satu program untuk melihat dokumentasi foto kegiatannya.</p>
     <div class="cards">
-      <div class="card"><img class="card-photo" src="ibadah-1.jpeg"  alt="Kegiatan keagamaan siswa MTs AL-FARABI" loading="lazy"><div class="icon">📖</div><h3>Keislaman</h3><p>Pembiasaan ibadah, pembelajaran Al-Qur'an, dan penguatan nilai-nilai akhlak.</p></div>
-      <div class="card"><div class="icon">💻</div><h3>Teknologi</h3><p>Mendorong literasi digital dan pemanfaatan teknologi untuk pembelajaran.</p></div>
-      <div class="card"><div class="icon">🏅</div><h3>Prestasi</h3><p>Mendukung siswa mengembangkan bakat akademik maupun non-akademik.</p></div>
-      <div class="card"><img class="card-photo" src="olahraga.jpeg" alt="Kegiatan olahraga siswa MTs AL-FARABI" loading="lazy"><div class="icon">⚽</div><h3>Olahraga</h3><p>Kegiatan olahraga untuk membangun kesehatan, disiplin, dan kerja sama.</p></div>
-      <div class="card"><div class="icon">🎨</div><h3>Seni & Kreativitas</h3><p>Wadah untuk mengembangkan kreativitas dan kemampuan seni siswa.</p></div>
-      <div class="card"><div class="icon">🤲</div><h3>Karakter</h3><p>Membangun sikap santun, bertanggung jawab, mandiri, dan peduli terhadap sesama.</p></div>
+      <button class="card program-card" type="button" onclick="openProgram('keislaman')">
+        <img class="card-photo" src="ibadah-1.jpeg" alt="Kegiatan keislaman siswa MTs AL-FARABI" loading="lazy">
+        <div class="icon">📖</div><h3>Keislaman</h3>
+        <p>Pembiasaan ibadah, pembelajaran Al-Qur'an, dan penguatan nilai-nilai akhlak.</p>
+        <span class="program-link">Lihat dokumentasi →</span>
+      </button>
+
+      <button class="card program-card" type="button" onclick="openProgram('teknologi')">
+        <div class="program-placeholder">💻</div>
+        <div class="icon">💻</div><h3>Teknologi</h3>
+        <p>Mendorong literasi digital dan pemanfaatan teknologi untuk pembelajaran.</p>
+        <span class="program-link">Lihat dokumentasi →</span>
+      </button>
+
+      <button class="card program-card" type="button" onclick="openProgram('prestasi')">
+        <img class="card-photo" src="prestasi-1.jpeg" alt="Prestasi siswa MTs AL-FARABI" loading="lazy">
+        <div class="icon">🏅</div><h3>Prestasi</h3>
+        <p>Mendukung siswa mengembangkan bakat akademik maupun non-akademik.</p>
+        <span class="program-link">Lihat dokumentasi →</span>
+      </button>
+
+      <button class="card program-card" type="button" onclick="openProgram('olahraga')">
+        <img class="card-photo" src="olahraga.jpeg" alt="Kegiatan olahraga siswa MTs AL-FARABI" loading="lazy">
+        <div class="icon">⚽</div><h3>Olahraga</h3>
+        <p>Kegiatan olahraga untuk membangun kesehatan, disiplin, dan kerja sama.</p>
+        <span class="program-link">Lihat dokumentasi →</span>
+      </button>
+
+      <button class="card program-card" type="button" onclick="openProgram('seni')">
+        <img class="card-photo" src="muhadharoh-1.jpeg" alt="Kegiatan kreativitas siswa MTs AL-FARABI" loading="lazy">
+        <div class="icon">🎨</div><h3>Seni & Kreativitas</h3>
+        <p>Wadah untuk mengembangkan kreativitas, keberanian tampil, dan kemampuan siswa.</p>
+        <span class="program-link">Lihat dokumentasi →</span>
+      </button>
+
+      <button class="card program-card" type="button" onclick="openProgram('karakter')">
+        <img class="card-photo" src="upacara-2.jpeg" alt="Kegiatan pembentukan karakter siswa MTs AL-FARABI" loading="lazy">
+        <div class="icon">🤲</div><h3>Karakter</h3>
+        <p>Membangun sikap santun, disiplin, bertanggung jawab, mandiri, dan peduli terhadap sesama.</p>
+        <span class="program-link">Lihat dokumentasi →</span>
+      </button>
     </div>
   </div>
 </section>
@@ -261,9 +330,9 @@ footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color
       <p>Bagian ini dapat kamu isi dengan prestasi dan kegiatan terbaru MTs AL-FARABI.</p>
     </div>
     <div class="cards">
-      <div class="card"><div class="icon">🏆</div><h3>Prestasi Siswa</h3><p>Tambahkan daftar juara atau penghargaan siswa di sini.</p></div>
-      <div class="card"><div class="icon">🎓</div><h3>Kegiatan Akademik</h3><p>Tambahkan kegiatan pembelajaran, ujian, seminar, atau pelatihan.</p></div>
-      <div class="card"><div class="icon">🌿</div><h3>Kegiatan Keagamaan</h3><p>Tambahkan dokumentasi dan informasi kegiatan keagamaan madrasah.</p></div>
+      <div class="card"><img class="card-photo" src="prestasi-1.jpeg" alt="Siswa menerima piala dan penghargaan" loading="lazy"><div class="icon">🏆</div><h3>Prestasi Siswa</h3><p>Dokumentasi siswa MTs AL-FARABI yang meraih penghargaan dan prestasi.</p></div>
+      <div class="card"><img class="card-photo" src="prestasi-2.jpeg" alt="Siswa menerima sertifikat penghargaan" loading="lazy"><div class="icon">🥇</div><h3>Penghargaan</h3><p>Dokumentasi penghargaan dan pencapaian peserta didik dalam berbagai kegiatan.</p></div>
+      <div class="card"><img class="card-photo" src="upacara.jpeg" alt="Kegiatan siswa di lapangan" loading="lazy"><div class="icon">🎓</div><h3>Kegiatan Madrasah</h3><p>Dokumentasi kegiatan bersama yang mendukung kedisiplinan dan kebersamaan siswa.</p></div>
     </div>
   </div>
 </section>
@@ -281,9 +350,14 @@ footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color
         <div class="caption">Lingkungan MTs AL-FARABI</div>
       </div>
       <div class="gallery-item"><img src="logo-mts.png" alt="Logo MTs AL-FARABI"><div class="caption">Identitas Madrasah</div></div>
-      <div class="gallery-item"><img src="foto-sekolah.jpg" alt="Gedung madrasah" onerror="this.src='logo-mts.png'"><div class="caption">Gedung Madrasah</div></div>
       <div class="gallery-item"><img src="olahraga.jpeg" alt="Kegiatan olahraga siswa MTs AL-FARABI" loading="lazy"><div class="caption">Kegiatan Olahraga</div></div>
-      <div class="gallery-item"><img src="ibadah.jpeg" alt="Kegiatan keagamaan siswa MTs AL-FARABI" loading="lazy"><div class="caption">Kegiatan Keagamaan</div></div>
+      <div class="gallery-item"><img src="ibadah-1.jpeg" alt="Kegiatan ibadah siswa MTs AL-FARABI" loading="lazy"><div class="caption">Kegiatan Ibadah</div></div>
+      <div class="gallery-item"><img src="ibadah-3.jpeg" alt="Kegiatan keagamaan siswa MTs AL-FARABI" loading="lazy"><div class="caption">Kegiatan Keagamaan</div></div>
+      <div class="gallery-item"><img src="prestasi-1.jpeg" alt="Prestasi siswa MTs AL-FARABI" loading="lazy"><div class="caption">Prestasi Siswa</div></div>
+      <div class="gallery-item"><img src="prestasi-2.jpeg" alt="Penghargaan siswa MTs AL-FARABI" loading="lazy"><div class="caption">Penghargaan Siswa</div></div>
+      <div class="gallery-item"><img src="muhadharoh-1.jpeg" alt="Kegiatan muhadharah siswa MTs AL-FARABI" loading="lazy"><div class="caption">Muhadharah</div></div>
+      <div class="gallery-item"><img src="upacara.jpeg" alt="Kegiatan siswa MTs AL-FARABI di lapangan" loading="lazy"><div class="caption">Kegiatan Lapangan</div></div>
+      <div class="gallery-item"><img src="upacara-2.jpeg" alt="Kegiatan upacara siswa MTs AL-FARABI" loading="lazy"><div class="caption">Upacara & Disiplin</div></div>
     </div>
     <div style="text-align:center;margin-top:30px">
       <a class="btn btn-primary" href="https://www.instagram.com/mtsalfarabijampang/" target="_blank">📸 Lihat Instagram @mtsalfarabijampang</a>
@@ -372,7 +446,99 @@ footer h3{color:white;margin-bottom:12px}footer p,footer li{font-size:14px;color
 
 <a class="float-wa" href="https://wa.me/6285974818771" target="_blank" rel="noopener" title="Chat WhatsApp MTs AL-FARABI">💬</a>
 
+<!-- MODAL DOKUMENTASI PROGRAM -->
+<div id="programModal" class="program-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="program-modal-box">
+    <button class="program-close" type="button" onclick="closeProgram()" aria-label="Tutup">×</button>
+    <div class="program-modal-head">
+      <h3 id="programModalTitle">Dokumentasi Program</h3>
+      <p id="programModalDesc">Kumpulan foto kegiatan MTs AL-FARABI.</p>
+    </div>
+    <div id="programPhotoGrid" class="program-photo-grid"></div>
+  </div>
+</div>
+
 <script>
+const programData = {
+  keislaman: {
+    title: "Program Keislaman",
+    desc: "Dokumentasi kegiatan ibadah dan pembinaan keagamaan siswa.",
+    photos: [
+      ["ibadah-1.jpeg", "Kegiatan ibadah siswa"],
+      ["ibadah-3.jpeg", "Kegiatan keagamaan siswa"]
+    ]
+  },
+  teknologi: {
+    title: "Program Teknologi",
+    desc: "Dokumentasi teknologi dapat ditambahkan di sini.",
+    photos: []
+  },
+  prestasi: {
+    title: "Program Prestasi",
+    desc: "Dokumentasi prestasi dan penghargaan siswa MTs AL-FARABI.",
+    photos: [
+      ["prestasi-1.jpeg", "Siswa menerima piala dan penghargaan"],
+      ["prestasi-2.jpeg", "Siswa menerima sertifikat penghargaan"]
+    ]
+  },
+  olahraga: {
+    title: "Program Olahraga",
+    desc: "Dokumentasi kegiatan olahraga siswa.",
+    photos: [
+      ["olahraga.jpeg", "Kegiatan olahraga siswa"]
+    ]
+  },
+  seni: {
+    title: "Seni & Kreativitas",
+    desc: "Dokumentasi kegiatan kreativitas dan keberanian tampil siswa.",
+    photos: [
+      ["muhadharoh-1.jpeg", "Kegiatan kreativitas dan muhadharah"]
+    ]
+  },
+  karakter: {
+    title: "Program Karakter",
+    desc: "Dokumentasi kegiatan yang membangun disiplin, tanggung jawab, dan kebersamaan.",
+    photos: [
+      ["upacara.jpeg", "Kegiatan siswa di lapangan"],
+      ["upacara-2.jpeg", "Kegiatan pembentukan karakter"]
+    ]
+  }
+};
+
+function openProgram(key){
+  const data=programData[key];
+  if(!data) return;
+  document.getElementById("programModalTitle").textContent=data.title;
+  document.getElementById("programModalDesc").textContent=data.desc;
+  const grid=document.getElementById("programPhotoGrid");
+  if(data.photos.length===0){
+    grid.innerHTML='<div class="program-empty">Belum ada foto untuk program ini. Nanti kamu bisa menambahkan banyak foto dengan mudah.</div>';
+  }else{
+    grid.innerHTML=data.photos.map(function(photo){
+      return '<figure><img src="'+photo[0]+'" alt="'+photo[1]+'" loading="lazy"><figcaption>'+photo[1]+'</figcaption></figure>';
+    }).join("");
+  }
+  const modal=document.getElementById("programModal");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+}
+
+function closeProgram(){
+  const modal=document.getElementById("programModal");
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+
+document.getElementById("programModal").addEventListener("click",function(e){
+  if(e.target===this) closeProgram();
+});
+
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape") closeProgram();
+});
+
 function toggleMenu(){
   document.getElementById('nav').classList.toggle('show');
 }
